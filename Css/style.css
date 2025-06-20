@@ -1,0 +1,439 @@
+/* === IMPORTAÇÃO DE FONTES === */
+@import url('https://fonts.googleapis.com/css2?family=Sedgwick+Ave+Display&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Exo:wght@300;400;500;600;700&display=swap');
+
+/* === RESET BÁSICO === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* === VARIÁVEIS CSS === */
+:root {
+  --color-bg: #c4c4c4;
+  --font-display: 'Sedgwick Ave Display', cursive;
+  --font-sans-serif: 'Lato', sans-serif;
+  --font-primary: 'Exo', sans-serif;
+  --box-shadow: 0px 21px 32px 0px rgba(8, 40, 34, 0.89);
+  --grad-bright: linear-gradient(-55deg, #030303 0%, #000000 100%);
+  --grad-dark: linear-gradient(-55deg, #000000 0%, #000000 100%);
+  --delay-base: 500ms;
+  --delay-added: 100ms;
+  --acc-back: cubic-bezier(0.175, 0.885, 0.320, 1.275);
+}
+
+/* === CONFIGURAÇÃO GERAL === */
+html, body {
+  width: 100%;
+  min-height: 100vh;
+  font-family: var(--font-primary);
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* === SEÇÃO SOBRE MIM - COM ESPAÇAMENTO OTIMIZADO === */
+.sobre-mim-section {
+  width: 100vw;
+  min-height: 100vh;
+  padding: 80px 20px 60px 20px; /* Reduzido para dar mais espaço ao conteúdo */
+  background: #f8f9fa;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+  box-sizing: border-box;
+}
+
+#sobreMinTitulo {
+  text-align: center;
+  margin-bottom: 40px;
+  font-size: 2.5rem;
+  color: #333;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+#conteudoSobre {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  height: 1000px;
+  gap: 50px;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  flex: 1;
+  min-height: 500px; /* Altura mínima para telas 16:9 */
+  overflow: hidden;
+}
+
+#resumoSobreMin {
+  flex: 0.8;
+  max-width: 500px;
+  min-width: 300px;
+  padding: 20px;
+  font-family: var(--font-sans-serif);
+  font-size: 1rem;
+  line-height: 1.7;
+  text-align: justify;
+  color: #555;
+}
+
+#resumoSobreMin h3 {
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+  color: #333;
+  font-weight: 700;
+}
+
+/* === CONTAINER DA IMAGEM === */
+#img {
+  flex-shrink: 0;
+  width: 100%;
+  max-width: 450px;
+  min-width: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-height: calc(100vh - 300px); /* Ajustado para o novo padding */
+}
+
+/* === FIGURA COM ANIMAÇÃO === */
+figure {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  aspect-ratio: 3/4;
+  transition: transform 600ms var(--acc-back);
+  cursor: pointer;
+  max-height: 100%;
+}
+
+figure:hover {
+  transform: scale(1.05) skewY(-1deg);
+}
+
+figure img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 2px 34px;
+  box-shadow: var(--box-shadow);
+  animation: popInImg 700ms var(--acc-back) 1 forwards;
+  animation-delay: var(--delay-base);
+  opacity: 0;
+  transform: skewY(1deg);
+  max-width: 100%;
+  max-height: 100%;
+}
+
+/* === ANIMAÇÕES === */
+@keyframes popInImg {
+  0% {
+    transform: skewY(5deg) scaleX(0.89) scaleY(0.89);
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    transform: skewY(1deg);
+  }
+}
+
+@keyframes popIn {
+  0%, 13% {
+    transform: scaleX(0.89) scaleY(0.75);
+    opacity: 0;
+  }
+  100% {
+    transform: skewY(-13deg);
+    opacity: 1;
+  }
+}
+
+/* === LEGENDAS DA FIGURA === */
+figcaption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: transform 600ms var(--acc-back), opacity 100ms ease-in;
+  pointer-events: none;
+}
+
+figure:hover figcaption {
+  opacity: 0;
+  transform: scale(0.91);
+}
+
+figcaption span {
+  position: absolute;
+  display: block;
+  background: var(--grad-bright);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-family: var(--font-sans-serif);
+  transform: skewY(-13deg);
+  text-shadow: var(--box-shadow);
+  animation: popIn 600ms var(--acc-back) 1 forwards;
+  opacity: 0;
+  font-weight: 700;
+}
+
+figcaption span:nth-of-type(1) {
+  top: -44px;
+  left: 44px;
+  font-size: 19px;
+  font-family: var(--font-sans-serif);
+  animation-delay: calc(var(--delay-base) + 1 * var(--delay-added));
+}
+
+figcaption span:nth-of-type(2) {
+  top: -34px;
+  left: -21px;
+  font-size: 77px;
+  font-family: var(--font-display);
+  animation-delay: calc(var(--delay-base) + 2 * var(--delay-added));
+}
+
+figcaption span:nth-of-type(3) {
+  bottom: -38px;
+  right: -21px;
+  font-size: 77px;
+  font-family: var(--font-display);
+  animation-delay: calc(var(--delay-base) + 3 * var(--delay-added));
+}
+
+/* === RESPONSIVIDADE === */
+
+/* Desktops grandes */
+@media screen and (min-width: 1200px) {
+  .sobre-mim-section {
+    padding: 140px 20px 120px 20px; /* Ainda mais espaço em telas grandes */
+  }
+  
+  #sobreMinTitulo {
+    margin: 0 auto 60px auto;
+    max-width: 1200px;
+  }
+  
+  #img {
+    max-width: 500px;
+    max-height: calc(100vh - 220px); /* Ajustado para o novo padding */
+  }
+  
+  figure {
+    max-width: 450px;
+  }
+  
+  #resumoSobreMin {
+    max-width: 600px;
+    font-size: 1.1rem;
+  }
+}
+
+/* Tablets e Desktops */
+@media screen and (min-width: 1024px) and (max-width: 1199px) {
+  .sobre-mim-section {
+    padding: 70px 20px 50px 20px;
+  }
+  
+  #sobreMinTitulo {
+    margin-bottom: 35px;
+  }
+  
+  #conteudoSobre {
+    gap: 50px;
+    align-items: flex-start;
+    min-height: 500px;
+  }
+  
+  #img {
+    margin-top: 60px;
+    max-width: 420px;
+    max-height: calc(100vh - 200px);
+  }
+  
+  figure {
+    max-width: 380px;
+  }
+  #resumoSobreMin {
+    max-width: 550px;
+    font-size: 1.1rem;
+  }
+  
+  #resumoSobreMin h3 {
+    font-size: 1.8rem;
+  }
+}
+
+/* Tablets */
+@media screen and (max-width: 1023px) and (min-width: 768px) {
+  .sobre-mim-section {
+    padding: 80px 20px 60px 20px;
+  }
+  
+  #sobreMinTitulo {
+    margin-bottom: 30px;
+  }
+  
+  #conteudoSobre {
+    gap: 40px;
+    align-items: flex-start;
+  }
+  
+  #img {
+    margin-top: 60px;
+    max-width: 350px;
+    max-height: calc(100vh - 220px);
+  }
+  
+  figure {
+    max-width: 320px;
+  }
+  
+  #resumoSobreMin {
+    font-size: 1rem;
+    max-width: 450px;
+  }
+  
+  #resumoSobreMin h3 {
+    font-size: 1.5rem;
+  }
+}
+
+/* Mobile */
+@media screen and (max-width: 767px) {
+  .sobre-mim-section {
+    width: 100vw;
+    min-height: 100vh;
+    padding: 60px 15px 50px 15px; /* Aumentado para mobile também */
+    overflow: hidden;
+    position: relative;
+  }
+  
+  #sobreMinTitulo {
+    font-size: 2rem;
+    margin-bottom: 25px;
+  }
+  
+  #conteudoSobre {
+    flex-direction: column;
+    gap: 25px; /* Aumentado de 20px */
+    text-align: center;
+    max-height: calc(100vh - 160px); /* Ajustado para o novo padding */
+    overflow: hidden;
+  }
+  
+  #img {
+    max-width: 280px;
+    min-width: 220px;
+    order: -1;
+    flex-shrink: 0;
+    max-height: 35vh;
+  }
+  
+  figure {
+    width: 100%;
+    max-width: 250px;
+    height: auto;
+    max-height: 35vh;
+    aspect-ratio: 3/4;
+  }
+  
+  figure img {
+    border-radius: 16px;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+  
+  #resumoSobreMin {
+    margin-top: 40px;
+    text-align: left;
+    padding: 10px;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    max-height: 35vh;
+    overflow-y: auto;
+    flex-shrink: 1;
+  }
+  
+  #resumoSobreMin h3 {
+    font-size: 1.3rem;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  
+  /* Ajuste das legendas no mobile */
+  figcaption span:nth-of-type(2),
+  figcaption span:nth-of-type(3) {
+    font-size: 40px;
+  }
+  
+  figcaption span:nth-of-type(1) {
+    font-size: 14px;
+  }
+}
+
+/* Mobile muito pequeno */
+@media screen and (max-width: 480px) {
+  .sobre-mim-section {
+    width: 100vw;
+    min-height: 100vh;
+    padding: 50px 15px 40px 15px; /* Aumentado também */
+    overflow: hidden;
+  }
+
+  #teste{
+    height: 200px;
+  }
+  #sobreMinTitulo {
+    font-size: 1.7rem;
+    margin-bottom: 20px;
+  }
+  
+  #conteudoSobre {
+    gap: 20px; /* Aumentado de 15px */
+    max-height: calc(100vh - 130px); /* Ajustado */
+  }
+  
+  #img {
+    max-width: 220px;
+    min-width: 180px;
+    max-height: 30vh;
+  }
+  
+  figure {
+    max-width: 200px;
+    max-height: 30vh;
+  }
+  
+  figure img {
+    max-height: 30vh;
+  }
+  
+  #resumoSobreMin {
+    font-size: 0.85rem;
+    line-height: 1.3;
+    max-height: 30vh;
+    padding: 5px;
+  }
+  
+  #resumoSobreMin h3 {
+    font-size: 1.2rem;
+  }
+  
+  figcaption span:nth-of-type(2),
+  figcaption span:nth-of-type(3) {
+    font-size: 35px;
+  }
+}

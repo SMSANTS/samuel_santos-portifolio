@@ -1,0 +1,489 @@
+@import url(https://fonts.googleapis.com/css?family=Varela+Round);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700);
+
+/* Importando as fontes necessárias para a seção figcaption */
+@import url('https://fonts.googleapis.com/css2?family=Sedgwick+Ave+Display&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap');
+
+:root {
+  --profile-bg: #fff;
+  --skills-bg: #3d3e42;
+  --profile-color: #9099a0;
+  --skills-color: #9099a0;
+  --link-color: #4589c9;
+  --bold-color: #4a4e51;
+  --anim-time: 0.6s;
+  --font-main: 'Open Sans', sans-serif;
+  --font-alt: 'Varela Round', sans-serif;
+}
+
+a {
+  color: var(--link-color);
+  text-decoration: none;
+}
+
+.clearfix::after, .clearfix::before {
+  content: " ";
+  display: table;
+}
+
+.clearfix::after {
+  clear: both;
+}
+
+.bold {
+  color: var(--bold-color);
+  font-weight: 400;
+}
+
+/* === SEÇÃO SKILLS/EXPERIÊNCIA === */
+
+.resume-wrapper {
+  position: relative;
+  text-align: center;
+  height: 100%;
+  margin-top: 0; /* Removido margin que pode causar espaçamento desnecessário */
+  clear: both; /* Garante que não flutue sobre outros elementos */
+  z-index: 1; /* Garante que fique atrás do conteúdo superior */
+  background: transparent; /* Remove qualquer fundo branco */
+}
+
+.container {
+  min-height: 600px;
+  position: relative; /* Removido position: absolute se existir */
+  z-index: 2; /* Garante que fique acima de outros elementos */
+  background: transparent; /* Remove qualquer fundo branco */
+  margin-top: 50px; /* Adiciona espaçamento controlado */
+}
+
+.profile {
+  background: var(--profile-bg);
+  width: 40%;
+  float: left;
+  color: var(--profile-color);
+  position: relative; /* Mudado de absolute para relative se existir */
+}
+
+.profile .name-wrapper {
+  float: left;
+  width: 60%;
+}
+
+.profile h1 {
+  font-size: 2.5em;
+  text-align: left;
+  font-family: 'Varela Round', sans-serif;
+  color: var(--bold-color);
+  text-transform: uppercase;
+  line-height: 1em;
+  padding-top: 40px;
+}
+
+.profile li {
+  margin-bottom: 10px;
+}
+
+.profile .picture-resume-wrapper {
+  width: 40%;
+  display: block;
+  float: left;
+}
+
+.profile .picture-resume {
+  width: 220px;
+  height: 220px;
+  background-size: cover;
+  border-radius: 50%;
+  margin-right: 0px;
+  display: flex; /* Mudança aqui */
+  position: relative;
+  align-items: center; /* Centraliza verticalmente */
+  justify-content: center; /* Centraliza horizontalmente */
+}
+
+.profile .picture-resume span {
+  display: flex; /* Mudança aqui */
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+}
+
+.profile .picture-resume img {
+  width: 130px;
+  height: auto; /* Mantém proporção original da imagem */
+  object-fit: contain; /* Mantém a imagem inteira visível */
+  object-position: center; /* Centraliza a imagem */
+  max-height: 150px; /* Limita altura máxima */
+}
+
+.profile .contact-info {
+  margin-top: 100px;
+  font-weight: 300;
+}
+
+.profile .list-titles {
+  float: left;
+  text-align: left;
+  font-weight: 600;
+  width: 40%;
+  color: var(--bold-color);
+}
+
+.profile .list-content {
+  float: left;
+  width: 60%;
+  text-align: left;
+  font-weight: 300;
+}
+
+.profile .contact-presentation {
+  text-align: left;
+  font-weight: 300;
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+
+.profile svg {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 5; /* Garante que o SVG fique atrás da foto */
+}
+
+.profile .st0, 
+.profile .st1 {
+  fill: #66cc99;
+}
+
+.experience {
+  background: var(--skills-bg);
+  width: 60%;
+  float: left;
+  position: relative;
+  color: var(--skills-color);
+  font-weight: 300;
+  min-height: 100%;
+  min-height: 100vh;
+}
+
+.experience h3.experience-title {
+  color: var(--link-color);
+  text-align: left;
+  text-transform: uppercase;
+  font-size: 1.2em;
+  margin-bottom: 20px;
+  font-weight: 400;
+}
+
+.experience .company-wrapper {
+  width: 30%;
+  float: left;
+  text-align: left;
+  padding-right: 5%;
+  margin-bottom: 60px;
+}
+
+.experience .job-wrapper {
+  width: 70%;
+  float: left;
+  text-align: left;
+  padding-right: 5%;
+  margin-bottom: 60px;
+}
+
+.experience .experience-title {
+  color: white;
+  margin-bottom: 15px;
+}
+
+.section-padding {
+  padding: 60px 60px 40px 40px;
+}
+
+.section-wrapper {
+  width: 50%;
+  float: left;
+  text-align: left;
+  color: var(--skills-color);
+  font-weight: 300;
+  margin-bottom: 20px;
+}
+
+.section-wrapper:nth-child(3) {
+  padding-right: 8%;
+}
+
+.section-wrapper h3.section-title {
+  color: var(--link-color);
+  text-align: left;
+  text-transform: uppercase;
+  font-size: 1.2em;
+  margin-bottom: 20px;
+  font-weight: 400;
+}
+
+.section-wrapper .skill-percentage {
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.section-wrapper .skill-percentage::after {
+  content: "";
+  width: 100%;
+  height: 6px;
+  background: var(--bold-color);
+  display: block;
+  margin-top: 3px;
+}
+
+.section-wrapper .skill-percentage::before {
+  content: "";
+  height: 6px;
+  background: var(--link-color);
+  position: absolute;
+  margin-top: 3px;
+  bottom: 0;
+}
+
+.section-wrapper .skill-percentage:nth-child(1)::before {
+  width: 80%;
+  animation: skill_1 var(--anim-time) ease;
+}
+
+.section-wrapper .skill-percentage:nth-child(2)::before {
+  width: 90%;
+  animation: skill_2 var(--anim-time) ease;
+}
+
+.section-wrapper .skill-percentage:nth-child(3)::before {
+  width: 50%;
+  animation: skill_3 var(--anim-time) ease;
+}
+
+.section-wrapper .skill-percentage:nth-child(4)::before {
+  width: 60%;
+  animation: skill_4 var(--anim-time) ease;
+}
+
+.section-wrapper .skill-percentage:nth-child(5)::before {
+  width: 70%;
+  animation: skill_5 var(--anim-time) ease;
+}
+
+.section-wrapper .skill-percentage:nth-child(6)::before {
+  width: 70%;
+  animation: skill_6 var(--anim-time) ease;
+}
+
+.section-wrapper .skill-percentage:nth-child(7)::before {
+  width: 70%;
+  animation: skill_7 var(--anim-time) ease;
+}
+
+@keyframes skill_1 {
+  from { width: 0%; }
+  to { width: 80%; }
+}
+
+@keyframes skill_2 {
+  from { width: 0%; }
+  to { width: 90%; }
+}
+
+@keyframes skill_3 {
+  from { width: 0%; }
+  to { width: 50%; }
+}
+
+@keyframes skill_4 {
+  from { width: 0%; }
+  to { width: 60%; }
+}
+
+@keyframes skill_5 {
+  from { width: 0%; }
+  to { width: 70%; }
+}
+
+@keyframes skill_6 {
+  from { width: 0%; }
+  to { width: 70%; }
+}
+
+@keyframes skill_7 {
+  from { width: 0%; }
+  to { width: 70%; }
+}
+
+/* === MEDIA QUERIES === */
+
+/* Telas grandes (acima de 1200px) */
+@media (max-width: 1500px) {
+  .profile .picture-resume {
+    width: 150px;
+    height: 150px;
+  }
+  
+  .profile .picture-resume img {
+    width: 80px;
+  }
+}
+
+/* Telas médias (máximo 1200px) */
+@media (max-width: 1200px) {
+  .resume-wrapper {
+    margin-top: 0; /* Remove margin desnecessário */
+    background: transparent; /* Garante fundo transparente */
+  }
+  
+  .container {
+    margin-top: 40px; /* Espaçamento controlado */
+  }
+  
+  .profile h1 {
+    padding-top: 20px;
+  }
+  
+  .profile .picture-resume-wrapper {
+    width: 100%;
+  }
+  
+  .profile .picture-resume {
+    width: 200px;
+    height: 200px;
+  }
+  
+  .profile .picture-resume img {
+    width: 120px;
+    height: 120px;
+  }
+  
+  .profile .contact-info {
+    margin-top: 70px;
+  }
+  
+  .profile .contact-presentation {
+    margin-top: 70px;
+    margin-bottom: 70px;
+  }
+}
+
+/* Tablets e telas menores (máximo 850px) */
+@media (max-width: 850px) {
+  .resume-wrapper {
+    margin-top: 0; /* Remove margin no mobile */
+    background: transparent; /* Garante fundo transparente */
+  }
+  
+  .container {
+    margin-top: 30px; /* Espaçamento reduzido para mobile */
+  }
+  
+  .profile {
+    width: 100%;
+  }
+  
+  .experience {
+    width: 100%;
+  }
+  
+  .section-padding {
+    padding: 80px 15% 40px 10%;
+  }
+  
+  .profile .contact-presentation {
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
+}
+
+/* Celulares (máximo 450px) */
+@media (max-width: 450px) {
+  .resume-wrapper {
+    margin-top: 0; /* Remove margin no mobile */
+    background: transparent; /* Garante fundo transparente */
+  }
+  
+  .container {
+    margin-top: 20px; /* Espaçamento mínimo para mobile */
+  }
+  
+  .profile h1 {
+    font-size: 1.8em;
+    padding-top: 20px;
+  }
+  
+  .profile .picture-resume {
+    width: 180px;
+    height: 180px;
+  }
+  
+  .profile .contact-info {
+    margin-top: 50px;
+  }
+  
+  .experience .company-wrapper {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  
+  .experience .job-wrapper {
+    width: 100%;
+    margin-bottom: 40px;
+  }
+  
+  .section-padding {
+    padding: 40px 10% 20px 5%;
+  }
+  
+  .section-wrapper {
+    width: 100%;
+  }
+}
+
+/* Classe adicional para garantir que o conteúdo superior tenha espaço suficiente */
+.content-above-resume {
+  margin-bottom: 50px; /* Adicione esta classe ao elemento que vem antes do resume */
+}
+
+/* Adicione ao seu CSS principal */
+
+.profile svg {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.profile .st0, 
+.profile .st1 {
+  fill: #3b8bb9;
+}
+
+/* Estilos específicos para as bolhas animadas */
+.profile svg .bubble0,
+.profile svg .bubble1,
+.profile svg .bubble2,
+.profile svg .bubble3,
+.profile svg .bubble4,
+.profile svg .bubble5,
+.profile svg .bubble6,
+.profile svg .bubble7,
+.profile svg .bubble8,
+.profile svg .bubble9,
+.profile svg .bubble10 {
+    transform-origin: center;
+    opacity: 0.8;
+    transition: all 0.3s ease;
+}
+
+/* Efeito hover opcional */
+.profile .picture-resume:hover svg .st1 {
+    opacity: 1;
+}
