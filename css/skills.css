@@ -7,9 +7,9 @@
 
 :root {
   --profile-bg: #fff;
-  --skills-bg: #3d3e42;
-  --profile-color: #9099a0;
-  --skills-color: #9099a0;
+  --skills-bg: #333333;
+  --profile-color: #9099a0;;
+  --skills-color:  #9099a0;;
   --link-color: #4589c9;
   --bold-color: #4a4e51;
   --anim-time: 0.6s;
