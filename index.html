@@ -17,39 +17,83 @@
     </div>
 
    <!-- Conteúdo real do seu site -->
-  <div id="conteudo" style="display: none;">
-    <div id = "apresentacao">   
-      <div id = "teste">
-      <!-- Seção: Capa com animação 3D -->
-        <spline-viewer url="https://prod.spline.design/N1uNK27RQEePqyNx/scene.splinecode"></spline-viewer>
-      </div>
-      <div id="sobre">
-      <div id="sobreMinTitulo">
-        <h2>Sobre mim</h2>
-      </div>
-
-      <!-- Novo container pra alinhar imagem e texto lado a lado -->
-      <div id="conteudoSobre">
-        <div id="img">
-          <figure>
-            <img src="assets/images/eu.jpg" alt="Samuel">
-            <figcaption>
-              <span>Dev</span>
-              <span>Samuel</span>
-              <span>Santos</span>
-            </figcaption>
-          </figure>
+  <div id="conteudo" style="display: none;">  
+      <section id="apresentacao">   
+        <!-- Container da neve -->
+        <div class="snow-container">
+            
+          
+          
+          <!-- SVG Background curvo -->
+            <div class="svg-container">
+                <svg viewBox="0 0 100 100" preserveAspectRatio="none">
+                    <path fill="#ffffff" fill-opacity="0.1" d="M 0 50 Q 50 30 100 50 L 100 100 L 0 100 Z"></path>
+                </svg>
+            </div>
+            
+            <!-- Área da neve -->
+            <div class="snow-area">
+                <div class="flake"></div>
+                <div class="flake"></div>
+                <div class="flake"></div>
+                <div class="flake"></div>
+                <div class="flake"></div>
+                <div class="flake"></div>
+                <div class="flake"></div>
+                <div class="flake"></div>
+                <div class="flake"></div>
+                <div class="flake"></div>
+                <div class="flake"></div>
+                <div class="flake"></div>
+                <div class="flake"></div>
+                <div class="flake"></div>
+                <div class="flake"></div>
+            </div>
         </div>
 
-        <div id="resumoSobreMim">
-          <h3>Analista de Dados - Belo Horizonte, MG</h3>
-          <p>Sou um analista de dados com quase dois anos de experiência, especializado em ETL, SQL e Power BI, ferramentas essenciais para transformar dados em informações estratégicas. Tenho um forte perfil colaborativo e habilidade de trabalho em equipe, o que me permite contribuir ativamente para a solução de desafios e otimização de processos.
-          Atualmente, curso Sistemas de Informação, aprofundando meus conhecimentos na área de tecnologia. Sou formado como técnico em eletrônica, o que me proporciona uma base sólida de lógica e análise técnica. Além disso, estou estudando C# para expandir minha expertise e explorar novas oportunidades no universo do desenvolvimento.
-          Resido em Belo Horizonte, MG, e sigo em constante evolução, buscando aprimorar minhas habilidades e agregar valor aos projetos em que atuo.</p>
+        <!-- Conteúdo Hero -->
+        <div id="CapaPortifolio">
+            <div class="hero-content">
+                <h1>Samuel Santos</h1>
+                <p>Analista de Dados & Desenvolvedor</p>
+                <a href="#sobre" class="cta-button">Conheça meu trabalho</a>
+            </div>
         </div>
-      </div>
-    </div> 
-    </div>
+    </section>
+
+    <!-- SEÇÃO SOBRE MIM -->
+    <section id="sobre" class="sobre-mim-section">
+        <div id="sobreMimTitulo">
+            <h2>Sobre mim</h2>
+        </div>
+
+        <!-- Container para alinhar imagem e texto lado a lado -->
+        <div id="conteudoSobre">
+            <div id="img">
+                <figure>
+                    <img src="assets/images/eu.jpg" alt="Samuel Santos - Analista de Dados">
+                    <figcaption>
+                        <span>Dev</span>
+                        <span>Samuel</span>
+                        <span>Santos</span>
+                    </figcaption>
+                </figure>
+            </div>
+
+            <div id="resumoSobreMim">
+                <h3>Analista de Dados - Belo Horizonte, MG</h3>
+                <p>Sou analista de dados com experiência em projetos envolvendo ETL, SQL e Power BI, ferramentas essenciais para transformar dados em informações 
+                  estratégicas. Tenho um forte perfil colaborativo e habilidade de trabalho em equipe, o que me permite contribuir ativamente para a solução de desafios e 
+                  otimização de processos.</p>
+
+                <p>Tive meu primeiro contato com programação durante o curso técnico em Eletrônica pelo SENAI CETEL César Rodrigues HORTO. 
+                  Essa experiência na linguagem C despertou meu interesse pela área e me motivou a seguir estudando e me aprofundando no universo da tecnologia e da programação. 
+                  Atualmente, estou cursando Sistemas de Informação na PUC e estudando C# e Python para ampliar meus conhecimentos e abrir novas oportunidades no desenvolvimento.</p>
+                
+                <p>Resido em Belo Horizonte, MG, e sigo em constante evolução, buscando aprimorar minhas habilidades e agregar valor aos projetos em que atuo.</p>
+            </div>
+        </div>
+    </section>
     <!-- skils -->
     <div class="resume-wrapper">
       <section class="profile section-padding">
@@ -91,33 +135,29 @@
 
           <div class="contact-info clearfix">
             <ul class="list-titles">
-              <li>Call</li>
-              <li>Mail</li>
-              <li>Web</li>
-              <li>Home</li>
+              <li>Telefone</li>
+              <li>E-mail</li>
+              <li>Endereço</li>
             </ul>
             <ul class="list-content">
-              <li>+55 31 9XXXX-XXXX</li>
-              <li>samuk.santos1999@hotmail.com</li>
-              <li><a href="#">seu-site.dev</a></li>
+              <li>+55 31 98294-5004</li>
+              <li>samuk.santos1999@gmail.com</li>
               <li>Belo Horizonte, MG</li>
             </ul>
           </div>
 
           <div class="contact-presentation">
-            <p><span class="bold">Sou apaixonado</span> por dados, tecnologia e soluções inteligentes. Busco unir criatividade com lógica pra gerar impacto através de insights.</p>
+            <p><span class="bold">Sou apaixonado</span> por tecnologia, dados e soluções inteligentes. Busco unir criatividade com lógica pra gerar impacto através de insights.</p>
           </div>
 
           <div class="contact-social clearfix">
             <ul class="list-titles">
-              <li>Twitter</li>
               <li>GitHub</li>
               <li>LinkedIn</li>
             </ul>
             <ul class="list-content">
-              <li><a href="#">@samueldados</a></li>
-              <li><a href="#">github.com/SMSANTS</a></li>
-              <li><a href="#">linkedin.com/in/samuel-santos-324377184/</a></li>
+              <li><a href="https://github.com/SMSANTS">github.com//SMSANTS</a></li>
+              <li><a href="https://www.linkedin.com/in/samuel-santos-324377184/">linkedin.com/in/samuel-santos-324377184/</a></li>
             </ul>
           </div>
         </div>
@@ -128,8 +168,8 @@
 
           <div class="experience-wrapper">
             <div class="company-wrapper clearfix">
-              <div class="experience-title">Empresa AEC</div>
-              <div class="time">out 2023 - Atualmente</div>
+              <div class="experience-title">Aec</div>
+              <div class="time">Out 2023 - Atualmente (Home Office)</div>
             </div>
 
             <div class="job-wrapper clearfix">
@@ -143,17 +183,19 @@
           <div class="section-wrapper clearfix">
             <h3 class="section-title">Skills</h3>
             <ul>
-              <li class="skill-percentage">SQL / T-SQL</li>
-              <li class="skill-percentage">ETL com SSIS </li>
+              <li class="skill-percentage">ETL com SSIS</li>
+              <li class="skill-percentage">SQL / T-SQL </li>
               <li class="skill-percentage">Power BI</li>
               <li class="skill-percentage">HTML / CSS / JS</li>
-              <li class="skill-percentage">C# (aprendizado)</li>
+              <li class="skill-percentage">C#</li>
             </ul>
           </div>
 
           <div class="section-wrapper clearfix">
             <h3 class="section-title">Hobbies</h3>
-            <p>Gamer raiz 🎮, fã de história antiga (especialmente Grécia e Roma 🇬🇷🇮🇹), e nas horas vagas estudo idiomas e curto muito passeio de moto.</p>
+            <p>Gamer raiz 🎮, com os chakras sempre alinhados entre maratonas de animes e séries. Estudo idiomas na base do Duolingo, café forte e força de vontade nível 
+              protagonista shonen. Piloto minha moto como quem foge de uma conspiração palaciana 🏍️⚡, e enfrento a academia como um campo de batalha pela supremacia física. 
+              Acordo às 6h pra forjar o shape nível Goku — porque como dizia Maquiavel: 'é melhor ser temido pela hipertrofia do que amado pelo sedentarismo'.</p>
           </div>
         </div>
       </section>
@@ -186,11 +228,11 @@
                   <!-- Projeto 2 - Sistema de ETL -->
                   <div class="project-card">
                       <h3>Pipeline de Dados</h3>
-                      <p>Sistema automatizado de ETL usando Pentaho para processamento de grandes volumes de dados e geração de relatórios automatizados.</p>
+                      <p>Sistema automatizado de ETL usando SSIS para processamento de grandes volumes de dados e geração de relatórios automatizados.</p>
                       <div class="project-tech">
-                          <span class="tech-tag">SISS</span>
+                          <span class="tech-tag">SSIS</span>
                           <span class="tech-tag">SQL Server</span>
-                          <span class="tech-tag">Scheduling</span>
+                          <span class="tech-tag">C#</span>
                           <span class="tech-tag">Data Warehouse</span>
                       </div>
                       <div class="project-links">
@@ -207,7 +249,6 @@
                           <span class="tech-tag">C#</span>
                           <span class="tech-tag">.NET</span>
                           <span class="tech-tag">SQL Server</span>
-                          <span class="tech-tag">WPF</span>
                       </div>
                       <div class="project-links">
                           <a href="#" class="project-link primary">Em breve</a>
