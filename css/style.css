@@ -1,4 +1,7 @@
+/*=== CSS ORGANIZADO - CAPA E SOBRE ===*/
+
 /* === IMPORTAÇÃO DE FONTES === */
+@import url('https://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700');
 @import url('https://fonts.googleapis.com/css2?family=Sedgwick+Ave+Display&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Exo:wght@300;400;500;600;700&display=swap');
@@ -13,11 +16,13 @@
 /* === VARIÁVEIS CSS === */
 :root {
   --color-bg: #c4c4c4;
+  --color-bg-light: #f8f9fa;
   --font-display: 'Sedgwick Ave Display', cursive;
   --font-sans-serif: 'Lato', sans-serif;
   --font-primary: 'Exo', sans-serif;
+  --font-ubuntu: 'Ubuntu', sans-serif;
   --box-shadow: 0px 21px 32px 0px rgba(8, 40, 34, 0.89);
-  --grad-bright: linear-gradient(-55deg, #030303 0%, #000000 100%);
+  --grad-bright: linear-gradient(-55deg, #0f69f0c4 0%, #51e416 100%);
   --grad-dark: linear-gradient(-55deg, #000000 0%, #000000 100%);
   --delay-base: 500ms;
   --delay-added: 100ms;
@@ -35,12 +40,224 @@ html, body {
   overflow-x: hidden;
 }
 
-/* === SEÇÃO SOBRE MIM - COM ESPAÇAMENTO OTIMIZADO === */
+/* ========================================
+   SEÇÃO APRESENTAÇÃO/CAPA
+======================================== */
+
+/* Container principal com degradê ou imagem de fundo */
+#apresentacao {
+    position: relative;
+    width: 100vw;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #333, #333); /* Pode trocar por imagem se quiser */
+    /* Exemplo com imagem:
+    background: url('sua-imagem.jpg') center/cover no-repeat;
+    */
+    overflow: hidden;
+}
+
+/* Container da neve (se tiver animação de neve) */
+.snow-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* SVG Background curvo com Glassmorphism */
+.svg-container {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 40%;
+    z-index: 2;
+
+    backdrop-filter: blur(10px); /* Efeito vidro desfocando o fundo */
+    -webkit-backdrop-filter: blur(10px); /* Suporte Safari */
+}
+
+/* SVG responsivo */
+.svg-container svg {
+    width: 100%;
+    height: 100%;
+}
+
+/* Curva com transparência para o Glassmorphism aparecer */
+.svg-container svg path {
+    transition: d 0.3s ease;
+    fill: #ffffff;
+    fill-opacity: 0.1; /* Controle de transparência do vidro */
+}
+
+/* Animação da curva ao passar o mouse */
+.svg-container:hover svg path {
+    d: path("M 0 50 Q 50 20 100 50 L 100 100 L 0 100 Z");
+}
+
+
+/* Área da neve com máscara gradual */
+.snow-area {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70%;
+    pointer-events: none;
+    overflow: hidden;
+    -webkit-mask: linear-gradient(to bottom, 
+        rgba(0,0,0,1) 0%, 
+        rgba(0,0,0,1) 30%, 
+        rgba(0,0,0,0.8) 50%,
+        rgba(0,0,0,0.4) 70%,
+        rgba(0,0,0,0.1) 85%,
+        rgba(0,0,0,0) 100%
+    );
+    mask: linear-gradient(to bottom, 
+        rgba(0,0,0,1) 0%, 
+        rgba(0,0,0,1) 30%, 
+        rgba(0,0,0,0.8) 50%,
+        rgba(0,0,0,0.4) 70%,
+        rgba(0,0,0,0.1) 85%,
+        rgba(0,0,0,0) 100%
+    );
+}
+
+.flake {
+    position: absolute;
+    transform-origin: center;
+}
+
+.flake:after {
+    content: '.';
+    color: transparent;
+    display: inline-block;
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+}
+
+/* Flocos para mobile */
+.flake:nth-child(1):after { box-shadow: 0 0 0 8px rgba(255,255,255,0.8); left: 20vw; top: 5vh; animation: snow 12s linear infinite; }
+.flake:nth-child(2):after { box-shadow: 0 0 0 12px rgba(255,255,255,0.6); left: 60vw; top: 8vh; animation: snow 15s linear infinite; }
+.flake:nth-child(3):after { box-shadow: 0 0 0 6px rgba(255,255,255,0.9); left: 80vw; top: 3vh; animation: snow 18s linear infinite; }
+.flake:nth-child(4):after { box-shadow: 0 0 0 10px rgba(255,255,255,0.4); left: 40vw; top: 12vh; animation: snow 14s linear infinite; }
+.flake:nth-child(5):after { box-shadow: 0 0 0 14px rgba(255,255,255,0.7); left: 10vw; top: 15vh; animation: snow 20s linear infinite; }
+
+.flake:nth-child(n+6) { display: none; }
+
+/* Tablets */
+@media (min-width: 768px) {
+    .flake:nth-child(n+6) { display: block; }
+    .flake:nth-child(6):after { box-shadow: 0 0 0 16px rgba(255,255,255,0.5); left: 70vw; top: 18vh; animation: snow 16s linear infinite; }
+    .flake:nth-child(7):after { box-shadow: 0 0 0 9px rgba(255,255,255,0.8); left: 30vw; top: 6vh; animation: snow 22s linear infinite; }
+    .flake:nth-child(8):after { box-shadow: 0 0 0 11px rgba(255,255,255,0.6); left: 85vw; top: 10vh; animation: snow 13s linear infinite; }
+    .flake:nth-child(9):after { box-shadow: 0 0 0 18px rgba(255,255,255,0.9); left: 15vw; top: 2vh; animation: snow 19s linear infinite; }
+    .flake:nth-child(10):after { box-shadow: 0 0 0 7px rgba(255,255,255,0.7); left: 50vw; top: 20vh; animation: snow 17s linear infinite; }
+}
+
+/* Desktop */
+@media (min-width: 1200px) {
+    .flake:nth-child(11):after { box-shadow: 0 0 0 13px rgba(255,255,255,0.5); left: 90vw; top: 14vh; animation: snow 21s linear infinite; }
+    .flake:nth-child(12):after { box-shadow: 0 0 0 8px rgba(255,255,255,0.8); left: 5vw; top: 22vh; animation: snow 11s linear infinite; }
+    .flake:nth-child(13):after { box-shadow: 0 0 0 20px rgba(255,255,255,0.6); left: 75vw; top: 11vh; animation: snow 25s linear infinite; }
+    .flake:nth-child(14):after { box-shadow: 0 0 0 5px rgba(255,255,255,0.4); left: 25vw; top: 16vh; animation: snow 15s linear infinite; }
+    .flake:nth-child(15):after { box-shadow: 0 0 0 15px rgba(255,255,255,0.9); left: 95vw; top: 4vh; animation: snow 23s linear infinite; }
+}
+
+@keyframes snow {
+    0% { 
+        transform: rotate(0deg) translateY(-100vh); 
+        opacity: 0; 
+    }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { 
+        transform: rotate(360deg) translateY(100vh); 
+        opacity: 0; 
+    }
+}
+
+/* Estilos do conteúdo hero */
+#CapaPortifolio {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 3;
+}
+
+.hero-content {
+    text-align: center;
+    color: white;
+    z-index: 4;
+    position: relative;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    animation: fadeInUp 1s ease-out;
+    font-family: var(--font-ubuntu);
+}
+
+.hero-content p {
+    font-size: 1.3rem;
+    font-weight: 300;
+    margin-bottom: 2rem;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    animation: fadeInUp 1s ease-out 0.3s both;
+    font-family: var(--font-ubuntu);
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 12px 30px;
+    background: rgba(255,255,255,0.2);
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: 500;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.3);
+    transition: all 0.3s ease;
+    animation: fadeInUp 1s ease-out 0.6s both;
+    font-family: var(--font-ubuntu);
+}
+
+.cta-button:hover {
+    background: rgba(255,255,255,0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ========================================
+   SEÇÃO SOBRE MIM
+======================================== */
+
 .sobre-mim-section {
   width: 100vw;
   min-height: 100vh;
-  padding: 80px 20px 60px 20px; /* Reduzido para dar mais espaço ao conteúdo */
-  background: #f8f9fa;
+  padding: 80px 20px 60px 20px;
+  background: #ffffff; /* FUNDO BRANCO GARANTIDO */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -49,13 +266,36 @@ html, body {
   box-sizing: border-box;
 }
 
-#sobreMinTitulo {
-  text-align: center;
-  margin-bottom: 40px;
-  font-size: 2.5rem;
-  color: #333;
-  font-weight: 600;
-  flex-shrink: 0;
+/* Título da seção sobre - UNIFICADO */
+#sobreMimTitulo {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2.5rem;
+    color: #333;
+    font-weight: 600;
+    flex-shrink: 0;
+    font-family: var(--font-ubuntu);
+}
+
+#sobreMimTitulo h2 {
+    font-size: 2.5rem;
+    font-weight: 500;
+    color: #333;
+    position: relative;
+    display: inline-block;
+    margin: 0; /* Remove margem para evitar duplicação */
+}
+
+#sobreMimTitulo h2:after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    border-radius: 2px;
 }
 
 #conteudoSobre {
@@ -63,17 +303,16 @@ html, body {
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  height: 1000px;
   gap: 50px;
   max-width: 1200px;
   width: 100%;
   margin: 0 auto;
   flex: 1;
-  min-height: 500px; /* Altura mínima para telas 16:9 */
+  min-height: 500px;
   overflow: hidden;
 }
 
-#resumoSobreMin {
+#resumoSobreMim {
   flex: 0.8;
   max-width: 500px;
   min-width: 300px;
@@ -85,7 +324,7 @@ html, body {
   color: #555;
 }
 
-#resumoSobreMin h3 {
+#resumoSobreMim h3 {
   font-size: 1.8rem;
   margin-bottom: 15px;
   color: #333;
@@ -101,7 +340,7 @@ html, body {
   display: flex;
   justify-content: center;
   align-items: center;
-  max-height: calc(100vh - 300px); /* Ajustado para o novo padding */
+  max-height: calc(100vh - 300px);
 }
 
 /* === FIGURA COM ANIMAÇÃO === */
@@ -212,29 +451,31 @@ figcaption span:nth-of-type(3) {
   animation-delay: calc(var(--delay-base) + 3 * var(--delay-added));
 }
 
-/* === RESPONSIVIDADE === */
+/* ========================================
+   RESPONSIVIDADE
+======================================== */
 
 /* Desktops grandes */
 @media screen and (min-width: 1200px) {
   .sobre-mim-section {
-    padding: 140px 20px 120px 20px; /* Ainda mais espaço em telas grandes */
+    padding: 140px 20px 120px 20px;
   }
   
-  #sobreMinTitulo {
+  #sobreMimTitulo {
     margin: 0 auto 60px auto;
     max-width: 1200px;
   }
   
   #img {
     max-width: 500px;
-    max-height: calc(100vh - 220px); /* Ajustado para o novo padding */
+    max-height: calc(100vh - 220px);
   }
   
   figure {
     max-width: 450px;
   }
   
-  #resumoSobreMin {
+  #resumoSobreMim {
     max-width: 600px;
     font-size: 1.1rem;
   }
@@ -246,7 +487,7 @@ figcaption span:nth-of-type(3) {
     padding: 70px 20px 50px 20px;
   }
   
-  #sobreMinTitulo {
+  #sobreMimTitulo {
     margin-bottom: 35px;
   }
   
@@ -265,12 +506,13 @@ figcaption span:nth-of-type(3) {
   figure {
     max-width: 380px;
   }
-  #resumoSobreMin {
+  
+  #resumoSobreMim {
     max-width: 550px;
     font-size: 1.1rem;
   }
   
-  #resumoSobreMin h3 {
+  #resumoSobreMim h3 {
     font-size: 1.8rem;
   }
 }
@@ -281,8 +523,12 @@ figcaption span:nth-of-type(3) {
     padding: 80px 20px 60px 20px;
   }
   
-  #sobreMinTitulo {
+  #sobreMimTitulo {
     margin-bottom: 30px;
+  }
+  
+  #sobreMimTitulo h2 {
+    font-size: 2rem;
   }
   
   #conteudoSobre {
@@ -300,13 +546,21 @@ figcaption span:nth-of-type(3) {
     max-width: 320px;
   }
   
-  #resumoSobreMin {
+  #resumoSobreMim {
     font-size: 1rem;
     max-width: 450px;
   }
   
-  #resumoSobreMin h3 {
+  #resumoSobreMim h3 {
     font-size: 1.5rem;
+  }
+  
+  .hero-content h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero-content p {
+    font-size: 1.1rem;
   }
 }
 
@@ -315,21 +569,25 @@ figcaption span:nth-of-type(3) {
   .sobre-mim-section {
     width: 100vw;
     min-height: 100vh;
-    padding: 60px 15px 50px 15px; /* Aumentado para mobile também */
+    padding: 60px 15px 50px 15px;
     overflow: hidden;
     position: relative;
   }
   
-  #sobreMinTitulo {
+  #sobreMimTitulo {
     font-size: 2rem;
     margin-bottom: 25px;
   }
   
+  #sobreMimTitulo h2 {
+    font-size: 2rem;
+  }
+  
   #conteudoSobre {
     flex-direction: column;
-    gap: 25px; /* Aumentado de 20px */
+    gap: 25px;
     text-align: center;
-    max-height: calc(100vh - 160px); /* Ajustado para o novo padding */
+    max-height: calc(100vh - 160px);
     overflow: hidden;
   }
   
@@ -356,7 +614,7 @@ figcaption span:nth-of-type(3) {
     object-fit: cover;
   }
   
-  #resumoSobreMin {
+  #resumoSobreMim {
     margin-top: 40px;
     text-align: left;
     padding: 10px;
@@ -367,7 +625,7 @@ figcaption span:nth-of-type(3) {
     flex-shrink: 1;
   }
   
-  #resumoSobreMin h3 {
+  #resumoSobreMim h3 {
     font-size: 1.3rem;
     text-align: center;
     margin-bottom: 10px;
@@ -382,6 +640,23 @@ figcaption span:nth-of-type(3) {
   figcaption span:nth-of-type(1) {
     font-size: 14px;
   }
+
+  /* Animação */
+  .spline {
+    display: none;
+  }
+  .spline-static {
+    display: block;
+  }
+  
+  /* Ajustes da capa no mobile */
+  .hero-content h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero-content p {
+    font-size: 1.1rem;
+  }
 }
 
 /* Mobile muito pequeno */
@@ -389,21 +664,26 @@ figcaption span:nth-of-type(3) {
   .sobre-mim-section {
     width: 100vw;
     min-height: 100vh;
-    padding: 50px 15px 40px 15px; /* Aumentado também */
+    padding: 50px 15px 40px 15px;
     overflow: hidden;
   }
 
-  #teste{
+  #fundoAnimado {
     height: 200px;
   }
-  #sobreMinTitulo {
+  
+  #sobreMimTitulo {
     font-size: 1.7rem;
     margin-bottom: 20px;
   }
   
+  #sobreMimTitulo h2 {
+    font-size: 1.7rem;
+  }
+  
   #conteudoSobre {
-    gap: 20px; /* Aumentado de 15px */
-    max-height: calc(100vh - 130px); /* Ajustado */
+    gap: 20px;
+    max-height: calc(100vh - 130px);
   }
   
   #img {
@@ -421,14 +701,14 @@ figcaption span:nth-of-type(3) {
     max-height: 30vh;
   }
   
-  #resumoSobreMin {
+  #resumoSobreMim {
     font-size: 0.85rem;
     line-height: 1.3;
     max-height: 30vh;
     padding: 5px;
   }
   
-  #resumoSobreMin h3 {
+  #resumoSobreMim h3 {
     font-size: 1.2rem;
   }
   
