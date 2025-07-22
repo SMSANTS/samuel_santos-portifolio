@@ -1,0 +1,179 @@
+
+
+
+<input type="checkbox" id="nav-button" name="nav-button">
+
+<nav class="nav-menu">
+  <label for="nav-button" class="nav-trigger"><i class="fa fa-bars"></i></label>
+  <ul>
+    <li><a href="https://twitter.com/RiccardoZanutta" target="_blank"><i class="fa fa-twitter"></i><span>Twitter</span></a></li>
+    <li><a href="https://www.linkedin.com/in/riccardozanutta" target="_blank"><i class="fa fa-linkedin"></i><span>Linkedin</span></a></li>
+    <li><a href="https://github.com/Riccardo-Zanutta" target="_blank"><i class="fa fa-github"></i><span>Github</span></a></li>
+    <li><a href="https://codepen.io/rickzanutta/" target="_blank"><i class="fa fa-codepen"></i><span>Codepen</span></a></li>
+  </ul>
+  
+  <div class="nav-logo"><a href="index.html">Site - Logo</a></div>
+</nav>
+
+<main>
+<style>
+
+    @import "bourbon";
+
+/* Basic styles */
+
+body {
+  background-color: #eee;
+  box-sizing: border-box;
+  font-family: "Futura PT", "Futura", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul, li {
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  display: block;
+  margin: 100px 20px;
+}
+
+/* This is the main nav-wrapper */
+
+.nav-menu {
+  background: #333;
+  color: #fff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+
+  
+  ul {
+    display: inline-block;
+    left: -100%;
+    position: relative;
+    transition: left 0.2s ease-in-out;
+  }
+  
+  li {
+    display: block;
+    float: left;
+    
+    a {
+      color: #c1c1c1;
+      display: block;
+      font-size: 24px;
+      line-height: 60px;
+      height: 50px; 
+      margin-top: 1px;
+      padding: 0 20px;
+      text-align: center;
+      
+      &:hover span {
+        opacity: 1;
+        visibility: visible;
+      }
+      
+      i {
+        font-size: 36px;
+        transition: color 0.2s ease;
+        
+        &.fa-twitter:hover {
+          color: #00aced;
+        }
+        
+        &.fa-linkedin:hover {
+          color: #0077b5;
+        }
+        
+        &.fa-github:hover, &.fa-codepen:hover {
+          color: #fff;
+        }
+      }
+      
+      span {
+        @include position(absolute, 0% 0 0 100%);
+        @include size(100%);
+        font-size: 24px;
+        line-height: 55px;
+        opacity: 0;
+        padding: 0 20px;
+        text-align: left;
+        transition: opacity 0.2s ease, visibility 0.2s ease; 
+        visibility: hidden;
+      }
+    }
+  }
+}
+
+/* This is the site logo */
+
+.nav-logo {
+  font-size: 24px;
+  letter-spacing: 1.3px;
+  position: absolute;
+  top: 12px;
+  right: 30px;
+  transition: 0.3s opacity ease;
+  
+  a {
+    color: #fefefe;
+  }
+}
+
+/* This is the trigger button */
+
+.nav-trigger {
+  background: #1abc9c;
+  cursor: pointer;
+  font-size: 36px;
+  float: left;
+  padding: 5px 10px;
+  
+  &:hover {
+    background: darken(#1abc9c, 8%);
+  }
+  
+  i {
+    color: #fff;
+    padding: 5px;
+    transition: transform 0.2s ease-in-out;
+  }
+}
+
+/* :checked state */
+
+input[type=checkbox]:checked + .nav-menu {
+  .nav-trigger i {
+    @include transform(rotate(270deg));
+  }
+  .nav-logo {
+    opacity: 0;
+  }
+}
+
+/* Icons turn back */
+
+input[type=checkbox]:checked + .nav-menu ul {
+  left: 0;
+}
+
+/*Input out of the window */
+
+input[type=checkbox] {
+  position: absolute;
+  top: -99px;
+}
+
+
+</style>
+
+
+</main>
