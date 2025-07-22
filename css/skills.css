@@ -118,7 +118,7 @@ a {
   object-fit: contain; /* Mantém a imagem inteira visível */
   object-position: center; /* Centraliza a imagem */
   max-height: 150px; /* Limita altura máxima */
-    object-fit: cover;  /* garante que a imagem preencha sem distorcer */
+  object-fit: cover;  /* garante que a imagem preencha sem distorcer */
   border-radius: 50%; /* deixa redondinha */
   border: none;       /* garante que não tenha borda */
   display: block;     /* tira espaços indesejados se estiver dentro de inline elements */
@@ -336,6 +336,10 @@ a {
   
   .profile .picture-resume img {
     width: 80px;
+    object-fit: cover;  /* garante que a imagem preencha sem distorcer */
+    border-radius: 50%; /* deixa redondinha */
+    border: none;       /* garante que não tenha borda */
+    display: block;     /* tira espaços indesejados se estiver dentro de inline elements */
   }
 }
 
@@ -366,6 +370,10 @@ a {
   .profile .picture-resume img {
     width: 120px;
     height: 120px;
+    object-fit: cover;  /* garante que a imagem preencha sem distorcer */
+    border-radius: 50%; /* deixa redondinha */
+    border: none;       /* garante que não tenha borda */
+    display: block;     /* tira espaços indesejados se estiver dentro de inline elements */
   }
   
   .profile .contact-info {
